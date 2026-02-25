@@ -25,7 +25,6 @@ export default async function Footer() {
 
     // Hardcode contact details as requested to be always static
     const address = "Kızılırmak mahallesi 1443. sk. No:31/1 Çankaya/Ankara";
-    const phone = "0544 553 96 73";
     const instagram = "@yoneyiem_kocluk";
 
     return (
@@ -94,17 +93,6 @@ export default async function Footer() {
                                             <MapPin size={16} />
                                         </div>
                                         <span className="mt-1 leading-relaxed">{address}</span>
-                                    </a>
-                                </li>
-                            )}
-                            {phone && (
-                                <li>
-                                    <a href={`tel:${phone.replace(/\s/g, '')}`}
-                                        className="flex items-center gap-4 text-[15px] font-semibold text-slate-500 hover:text-emerald-700 transition-colors group">
-                                        <div className="w-8 h-8 rounded-lg bg-white border border-slate-100 flex items-center justify-center flex-shrink-0 text-emerald-600 shadow-sm transition-colors group-hover:border-emerald-100">
-                                            <Phone size={16} />
-                                        </div>
-                                        <span>{phone}</span>
                                     </a>
                                 </li>
                             )}

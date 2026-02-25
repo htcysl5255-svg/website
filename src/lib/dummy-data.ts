@@ -97,11 +97,6 @@ export const DUMMY_CONTACT_PAGE = {
                     color: "blue",
                 },
                 {
-                    title: "TELEFON",
-                    description: "05445539673",
-                    color: "orange",
-                },
-                {
                     title: "INSTAGRAM",
                     description: "yoneylemkocu",
                     color: "pink",
@@ -165,7 +160,6 @@ export const DUMMY_SITE_SETTINGS = [
     { key: "blog_read_more_label", value: "Devamını Oku" },
     { key: "blog_back_label", value: "Geri Dön" },
     { key: "contact_address", value: "Kızılırmak mahallesi 1443. sk. No:31/1" },
-    { key: "contact_phone", value: "05445539673" },
     { key: "contact_instagram", value: "yoneylemkocu" },
     { key: "footer_text", value: "Profesyonel koçluk desteği ile potansiyelinizi keşfedin ve hedeflerinize ulaşın." },
 ];
