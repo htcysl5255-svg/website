@@ -1,17 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #111827;
-  /* slate-900 */
-  --primary: #2563eb;
-  /* blue-600 */
+  /* Vibrant, Lifeful Tinted Base (Soft Mint Ivory) */
+  --background: #f6fdf9;
+  --foreground: #022c22;
+  /* Emerald 950 */
+  --primary: #059669;
+  /* Emerald 600 */
+  --primary-dark: #047857;
+  /* Emerald 700 */
   --secondary: #10b981;
-  /* emerald-500 */
-  --accent: #ec4899;
-  /* pink-500 */
-  --muted: #f1f5f9;
-  /* slate-100 */
+  /* Emerald 500 */
+
+  /* Lively Accents */
+  --accent-blue: #3b82f6;
+  --accent-pink: #f43f5e;
+  --accent-orange: #f59e0b;
+
+  --muted: #ecfdf5;
+  /* Slate 50 -> Emerald 50 tint */
+  --surface: rgba(255, 255, 255, 0.6);
+  --border: #d1fae5;
+  /* Slate 100 -> Emerald 200 */
 }
 
 @theme inline {
@@ -19,26 +30,199 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
+  --color-blue: var(--accent-blue);
+  --color-pink: var(--accent-pink);
+  --color-orange: var(--accent-orange);
   --color-muted: var(--muted);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Outfit', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f172a;
-    /* slate-900 */
-    --foreground: #f8fafc;
-    /* slate-50 */
-    --muted: #1e293b;
-    /* slate-800 */
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* ─── Vibrant Lively Background ─────────────────────────── */
+.mesh-bg {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(circle at 10% 0%, rgba(16, 185, 129, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 90% 10%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(244, 63, 94, 0.06) 0%, transparent 60%);
+}
+
+/* ─── Colorful Gradient Text ─────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #047857 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Premium Professional Glass ─────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 30px rgba(5, 150, 105, 0.06);
+}
+
+/* ─── Vibrant Refined Button ─────────────────────────────── */
+.btn-primary {
+  background: linear-gradient(135deg, #059669, #0ea5e9);
+  color: #fff;
+  border-radius: 12px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(5, 150, 105, 0.25);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #047857, #0284c7);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(5, 150, 105, 0.35);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #d1fae5;
+  color: #065f46;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: #059669;
+  color: #047857;
+  background: #f0fdf4;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.1);
+}
+
+/* ─── Lively Feature Card ────────────────────────────────── */
+.feature-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 3rem 2.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card:hover {
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.15);
+  transform: translateY(-6px);
+  background: #ffffff;
+}
+
+/* ─── Micro Accents ──────────────────────────────────────── */
+.accent-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ─── Animations ─────────────────────────────────────────── */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+
+  66% {
+    transform: translateY(-4px) rotate(-1deg);
+  }
+}
+
+@keyframes glow {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    filter: blur(45px);
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    filter: blur(55px);
+    transform: scale(1.05);
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 8s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* ─── Scroll Bar ─────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a7f3d0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #34d399;
 }

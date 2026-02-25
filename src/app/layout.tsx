@@ -18,7 +18,13 @@ const geistMono = Geist_Mono({
 
 export async function generateMetadata(): Promise<Metadata> {
   const supabase = await createClient();
-  const { data: settings } = await supabase.from("site_settings").select("*");
+  let settings: any[] | null = null;
+
+  if (supabase) {
+    const { data } = await supabase.from("site_settings").select("*");
+    settings = data;
+  }
+
   const getSetting = (key: string) => settings?.find(s => s.key === key)?.value;
 
   return {

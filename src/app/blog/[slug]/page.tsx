@@ -3,19 +3,31 @@ import { ArrowLeft, Calendar, User } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { DUMMY_POSTS, DUMMY_SITE_SETTINGS, isSupabaseMissing } from "@/lib/dummy-data";
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
+
+    let post: any = null;
+    let settings = DUMMY_SITE_SETTINGS;
     const supabase = await createClient();
-    const { data: post } = await supabase
-        .from("posts")
-        .select("*")
-        .eq("slug", slug)
-        .single();
+
+    if (supabase) {
+        const { data } = await supabase
+            .from("posts")
+            .select("*")
+            .eq("slug", slug)
+            .single();
+        post = data;
+
+        const { data: fetchedSettings } = await supabase.from("site_settings").select("*");
+        if (fetchedSettings) settings = fetchedSettings;
+    } else {
+        post = DUMMY_POSTS.find(p => p.slug === slug) || null;
+    }
 
     if (!post) notFound();
 
-    const { data: settings } = await supabase.from("site_settings").select("*");
     const getSetting = (key: string) => settings?.find(s => s.key === key)?.value;
     const backLabel = getSetting('blog_back_label') || "Geri Dön";
 
