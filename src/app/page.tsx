@@ -44,7 +44,7 @@ export default function Home() {
                 )}
 
                 {/* Vibrant Headline (Outfit) */}
-                <h1 className="animate-fade-up text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-8 text-emerald-950 font-display"
+                <h1 className="animate-fade-up text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-8 text-emerald-950 font-display break-words"
                   style={{ animationDelay: '0.1s' }}>
                   {block.title?.split(' ').slice(0, -2).join(' ')}{' '}
                   <span className="gradient-text">{block.title?.split(' ').slice(-2).join(' ')}</span>

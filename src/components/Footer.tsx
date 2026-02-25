@@ -23,9 +23,10 @@ export default async function Footer() {
     const quickMenuTitle = getSetting('footer_quick_menu_title') || "Hızlı Menü";
     const contactLabel = getSetting('nav_contact_label') || "İletişim";
 
-    const address = getSetting('contact_address') || "Çukurambar, Ankara";
-    const phone = getSetting('contact_phone');
-    const instagram = getSetting('contact_instagram');
+    // Hardcode contact details as requested to be always static
+    const address = "Kızılırmak mahallesi 1443. sk. No:31/1 Kat: 3 Daire: 17 1071 Ankara Plaza, 06510 Çankaya/Ankara";
+    const phone = "0539 217 62 14";
+    const instagram = "@yoneyiem_kocluk";
 
     return (
         <footer className="bg-slate-50/50 border-t border-slate-100">

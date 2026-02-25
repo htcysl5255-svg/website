@@ -11,12 +11,12 @@ export default async function Blog() {
     const supabase = await createClient();
 
     if (supabase) {
-        const { data: fetchedPosts } = await supabase
+        const { data: fetchedPosts, error: postsError } = await supabase
             .from("posts")
             .select("*")
             .eq("published", true)
             .order("created_at", { ascending: false });
-        if (fetchedPosts && fetchedPosts.length > 0) posts = fetchedPosts;
+        if (!postsError && fetchedPosts) posts = fetchedPosts;
 
         const { data: fetchedSettings } = await supabase.from("site_settings").select("*");
         if (fetchedSettings && fetchedSettings.length > 0) settings = fetchedSettings;
@@ -46,7 +46,7 @@ export default async function Blog() {
                         <BookOpen size={14} />
                         Güncel Yazılar
                     </div>
-                    <h1 className="text-5xl sm:text-6xl font-black tracking-tight text-slate-900 mb-5 leading-tight">
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-5 leading-tight break-words">
                         {title.split(' ').slice(0, -1).join(' ')}{' '}
                         <span className="gradient-text">{title.split(' ').slice(-1)}</span>
                     </h1>
