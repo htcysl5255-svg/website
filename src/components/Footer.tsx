@@ -25,7 +25,7 @@ export default async function Footer() {
 
     // Hardcode contact details as requested to be always static
     const address = "Kızılırmak mahallesi 1443. sk. No:31/1 Çankaya/Ankara";
-    const instagram = "@yoneyiem_kocluk";
+    const instagram = "@yoneylemkocu";
 
     return (
         <footer className="bg-slate-50/50 border-t border-slate-100">
