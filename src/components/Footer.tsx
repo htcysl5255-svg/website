@@ -24,8 +24,8 @@ export default async function Footer() {
     const contactLabel = getSetting('nav_contact_label') || "İletişim";
 
     // Hardcode contact details as requested to be always static
-    const address = "Kızılırmak mahallesi 1443. sk. No:31/1 Kat: 3 Daire: 17 1071 Ankara Plaza, 06510 Çankaya/Ankara";
-    const phone = "0539 217 62 14";
+    const address = "Kızılırmak mahallesi 1443. sk. No:31/1 Çankaya/Ankara";
+    const phone = "0544 553 96 73";
     const instagram = "@yoneyiem_kocluk";
 
     return (
