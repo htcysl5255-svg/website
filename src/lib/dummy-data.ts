@@ -41,42 +41,6 @@ export const DUMMY_INDEX_PAGE = {
     ],
 };
 
-export const DUMMY_ABOUT_PAGE = {
-    slug: "hakkimda",
-    content: [
-        {
-            type: "hero",
-            badge: "Hakkımda",
-            title: "Sizinle Tanışalım",
-            subtitle:
-                "10 yılı aşkın deneyimimle hayatınızda kalıcı değişimler yaratmanıza yardımcı olmak için buradayım.",
-            cta1_text: "Seans Al",
-            cta1_link: "/iletisim",
-        },
-        {
-            type: "features",
-            title: "Uzmanlık Alanlarım",
-            items: [
-                {
-                    title: "Kariyer Koçluğu",
-                    description: "Kariyer yolunuzu netleştirin ve hedeflerinize ulaşın.",
-                    color: "blue",
-                },
-                {
-                    title: "Liderlik",
-                    description: "Liderlik potansiyelinizi keşfedip geliştirin.",
-                    color: "green",
-                },
-                {
-                    title: "Yaşam Koçluğu",
-                    description: "Tüm yaşam alanlarında huzur ve denge bulun.",
-                    color: "pink",
-                },
-            ],
-        },
-    ],
-};
-
 export const DUMMY_CONTACT_PAGE = {
     slug: "iletisim",
     content: [

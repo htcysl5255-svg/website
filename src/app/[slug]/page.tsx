@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
 import { Star, Instagram, MapPin, Phone } from "lucide-react";
-import { DUMMY_ABOUT_PAGE, DUMMY_CONTACT_PAGE } from "@/lib/dummy-data";
+import { DUMMY_CONTACT_PAGE } from "@/lib/dummy-data";
 
 const ICON_MAP: Record<string, React.ReactNode> = {
     "ADRES": <MapPin size={26} />,
@@ -40,9 +40,6 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
         }
     }
 
-    if (!page && slug === 'hakkimda') {
-        page = DUMMY_ABOUT_PAGE;
-    }
 
     if (!page) {
         notFound();
