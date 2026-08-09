@@ -60,7 +60,12 @@ function readPost(filename: string): Post | null {
 
 /** All published posts, newest first. */
 export function getAllPosts(): Post[] {
-    if (!fs.existsSync(POSTS_DIR)) return [];
+    if (!fs.existsSync(POSTS_DIR)) {
+        throw new Error(
+            `The "posts" folder is missing (expected at ${POSTS_DIR}).\n` +
+            `Blog posts live there as .md files — restore the folder and try again.`
+        );
+    }
 
     return fs
         .readdirSync(POSTS_DIR)

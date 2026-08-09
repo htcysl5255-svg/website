@@ -1,13 +1,27 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import { SITE } from "@/lib/content";
 import { getAllPosts, getPost } from "@/lib/posts";
 import { formatDate } from "@/lib/format";
 
+// Only the posts in /posts exist; anything else is a 404.
+export const dynamicParams = false;
+
+/**
+ * A static export refuses to build a dynamic route that generates zero pages.
+ * While there are no posts yet we emit this single placeholder so the build
+ * succeeds; it is hidden from search engines and disappears on its own the
+ * moment a real post exists.
+ */
+const NO_POSTS_SLUG = "__no-posts";
+
 export function generateStaticParams() {
-    return getAllPosts().map((post) => ({ slug: post.slug }));
+    const posts = getAllPosts();
+
+    if (posts.length === 0) return [{ slug: NO_POSTS_SLUG }];
+
+    return posts.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({
@@ -18,7 +32,8 @@ export async function generateMetadata({
     const { slug } = await params;
     const post = getPost(slug);
 
-    if (!post) return {};
+    // The build-time placeholder: keep it out of search results.
+    if (!post) return { robots: { index: false, follow: false } };
 
     return { title: `${post.title} · ${SITE.brandName}` };
 }
@@ -32,7 +47,21 @@ export default async function BlogPost({
 
     const post = getPost(slug);
 
-    if (!post) notFound();
+    // Because dynamicParams is false, the only page that reaches this branch is
+    // the placeholder generated while /posts has no published posts. Real
+    // unknown URLs never get a file, so the host serves its own 404.
+    if (!post) {
+        return (
+            <section className="wrap" style={{ paddingTop: 96, paddingBottom: 112 }}>
+                <p className="eyebrow">{SITE.blog.eyebrow}</p>
+                <h1 className="display-sm">{SITE.blog.emptyTitle}</h1>
+                <p className="lede">{SITE.blog.emptyText}</p>
+                <p style={{ marginTop: "var(--space-8)" }}>
+                    <Link href="/blog">← {SITE.blog.backLabel}</Link>
+                </p>
+            </section>
+        );
+    }
 
     return (
         <article className="wrap" style={{ paddingTop: 56, paddingBottom: 112 }}>
