@@ -36,11 +36,11 @@ export default function Navbar() {
                     }}
                 >
                     <Image
-                        src="/logo.png"
+                        src="/logo-mark.png"
                         alt=""
-                        width={38}
-                        height={38}
-                        style={{ objectFit: "contain" }}
+                        width={42}
+                        height={42}
+                        style={{ height: 42, width: "auto", display: "block" }}
                     />
                     <span
                         style={{

@@ -15,12 +15,37 @@ export default function Blog() {
 
     return (
         <>
-            <section className="wrap" style={{ paddingTop: 96, paddingBottom: 56 }}>
-                <p className="eyebrow">{SITE.blog.eyebrow}</p>
-                <h1 className="display-sm" style={{ maxWidth: "16ch" }}>
-                    {SITE.blog.pageTitle}
-                </h1>
-                <p className="lede">{SITE.blog.pageSubtitle}</p>
+            <section style={{ position: "relative", overflow: "hidden" }}>
+                <div
+                    className="blob"
+                    style={{
+                        top: -150,
+                        right: -90,
+                        width: 400,
+                        height: 400,
+                        background: "var(--color-accent-300)",
+                    }}
+                />
+                <div
+                    className="blob"
+                    style={{
+                        top: 200,
+                        right: 120,
+                        width: 84,
+                        height: 84,
+                        background: "var(--brand-blue)",
+                    }}
+                />
+                <div
+                    className="wrap"
+                    style={{ position: "relative", paddingTop: 96, paddingBottom: 56 }}
+                >
+                    <p className="eyebrow">{SITE.blog.eyebrow}</p>
+                    <h1 className="display-sm" style={{ maxWidth: "16ch" }}>
+                        {SITE.blog.pageTitle}
+                    </h1>
+                    <p className="lede">{SITE.blog.pageSubtitle}</p>
+                </div>
             </section>
 
             <section className="wrap" style={{ paddingTop: 40, paddingBottom: 112 }}>

@@ -10,9 +10,15 @@
  */
 
 :root {
+  --brand-blue: #1f4e8f;
+  --brand-blue-dark: #173d70;
   --brand-green: #0f8a63;
-  --brand-green-dark: #0a6047;
-  --brand-green-soft: #cdeadd;
+  --brand-green-dark: #0a5c45;
+
+  /* The cream ground at low opacity, for text on the dark green band. */
+  --on-dark: rgba(245, 234, 216, 0.9);
+  --on-dark-muted: rgba(245, 234, 216, 0.72);
+  --on-dark-rule: rgba(245, 234, 216, 0.22);
 
   /* Page gutter, tightened on small screens by the media query at the end. */
   --gutter: 40px;
@@ -63,6 +69,75 @@ a:hover {
 
 .section-quiet {
   background: var(--color-surface);
+}
+
+/* Full-bleed dark green band — the pull quote and the footer sit on this. */
+.band-dark {
+  position: relative;
+  overflow: hidden;
+  background: var(--brand-green-dark);
+  color: var(--color-bg);
+}
+
+/* ─── Portrait ─────────────────────────────────────────────── */
+
+.portrait {
+  position: relative;
+  margin: 0;
+}
+
+/* An accent disc offset behind the photo, and a small blue one beside it. */
+.portrait-disc {
+  position: absolute;
+  inset: 22px -22px -22px 22px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.portrait-dot {
+  position: absolute;
+  left: -34px;
+  bottom: 26px;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--brand-blue);
+}
+
+.portrait-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+/* ─── Footer ───────────────────────────────────────────────── */
+
+.site-footer a {
+  color: var(--color-accent-300);
+}
+
+.site-footer a:hover {
+  color: var(--color-bg);
+}
+
+.site-footer .footer-nav a {
+  color: var(--on-dark);
+}
+
+.site-footer .footer-nav a:hover {
+  color: var(--color-accent-300);
+}
+
+.footer-label {
+  margin: 0 0 var(--space-3);
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-300);
 }
 
 /* ─── Type ─────────────────────────────────────────────────── */

@@ -2,19 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { SITE, NAV_ITEMS } from "@/lib/content";
 
-const labelStyle = {
-    margin: "0 0 var(--space-3)",
-    fontSize: 12.5,
-    letterSpacing: "0.14em",
-    textTransform: "uppercase" as const,
-    color: "var(--color-neutral-600)",
-};
-
 export default function Footer() {
     const links = [{ title: SITE.nav.home, slug: "" }, ...NAV_ITEMS];
 
     return (
-        <footer className="section-quiet">
+        <footer className="site-footer band-dark">
             <div
                 className="wrap grid-footer"
                 style={{ paddingTop: 72, paddingBottom: 40 }}
@@ -29,11 +21,11 @@ export default function Footer() {
                         }}
                     >
                         <Image
-                            src="/logo.png"
+                            src="/logo-mark.png"
                             alt=""
-                            width={34}
-                            height={34}
-                            style={{ objectFit: "contain" }}
+                            width={36}
+                            height={36}
+                            style={{ height: 36, width: "auto", display: "block" }}
                         />
                         <span style={{ fontFamily: "var(--font-heading)", fontSize: 19 }}>
                             {SITE.brandName}
@@ -44,7 +36,7 @@ export default function Footer() {
                             margin: 0,
                             fontSize: 16,
                             lineHeight: 1.7,
-                            color: "var(--color-neutral-700)",
+                            color: "var(--on-dark-muted)",
                             maxWidth: "38ch",
                         }}
                     >
@@ -53,8 +45,9 @@ export default function Footer() {
                 </div>
 
                 <div>
-                    <p style={labelStyle}>{SITE.footer.pagesTitle}</p>
+                    <p className="footer-label">{SITE.footer.pagesTitle}</p>
                     <div
+                        className="footer-nav"
                         style={{
                             display: "flex",
                             flexDirection: "column",
@@ -63,11 +56,7 @@ export default function Footer() {
                         }}
                     >
                         {links.map((link) => (
-                            <Link
-                                key={link.slug}
-                                href={`/${link.slug}`}
-                                style={{ fontSize: 16, color: "var(--color-neutral-800)" }}
-                            >
+                            <Link key={link.slug} href={`/${link.slug}`} style={{ fontSize: 16 }}>
                                 {link.title}
                             </Link>
                         ))}
@@ -75,13 +64,13 @@ export default function Footer() {
                 </div>
 
                 <div>
-                    <p style={labelStyle}>{SITE.footer.contactTitle}</p>
+                    <p className="footer-label">{SITE.footer.contactTitle}</p>
                     <p
                         style={{
                             margin: "0 0 var(--space-2)",
                             fontSize: 16,
                             lineHeight: 1.6,
-                            color: "var(--color-neutral-800)",
+                            color: "var(--on-dark)",
                         }}
                     >
                         {SITE.contact.address}
@@ -101,15 +90,15 @@ export default function Footer() {
 
             <div className="wrap" style={{ paddingBottom: 48 }}>
                 <div
-                    className="rule"
                     style={{
+                        borderTop: "1px solid var(--on-dark-rule)",
                         paddingTop: 24,
                         display: "flex",
                         justifyContent: "space-between",
                         flexWrap: "wrap",
                         gap: 24,
                         fontSize: 13,
-                        color: "var(--color-neutral-600)",
+                        color: "var(--color-accent-300)",
                     }}
                 >
                     <span>

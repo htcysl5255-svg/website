@@ -36,63 +36,20 @@ function BlockView({ block, first }: { block: Block; first: boolean }) {
 
 function Hero({ block }: { block: Extract<Block, { type: "hero" }> }) {
     const small = block.imageSize === "small";
-    const decor = block.decor ?? "right";
 
     return (
         <section style={{ position: "relative", overflow: "hidden" }}>
-            {/* Soft decorative circles */}
-            {decor === "right" && (
-                <>
-                    <div
-                        className="blob"
-                        style={{
-                            top: -140,
-                            right: -120,
-                            width: 520,
-                            height: 520,
-                            background: "var(--brand-green-soft)",
-                            opacity: 0.55,
-                        }}
-                    />
-                    <div
-                        className="blob"
-                        style={{
-                            top: 230,
-                            right: 280,
-                            width: 150,
-                            height: 150,
-                            background: "var(--color-accent-200)",
-                            opacity: 0.7,
-                        }}
-                    />
-                </>
-            )}
-            {decor === "left" && (
-                <div
-                    className="blob"
-                    style={{
-                        top: -180,
-                        left: -140,
-                        width: 460,
-                        height: 460,
-                        background: "var(--color-accent-200)",
-                        opacity: 0.6,
-                    }}
-                />
-            )}
-            {decor === "bottom" && (
-                <div
-                    className="blob"
-                    style={{
-                        bottom: -160,
-                        right: -100,
-                        width: 420,
-                        height: 420,
-                        background: "var(--brand-green-soft)",
-                        opacity: 0.55,
-                    }}
-                />
-            )}
+            {/* A single soft accent disc bleeding off the top-right corner. */}
+            <div
+                className="blob"
+                style={{
+                    top: small ? -170 : -140,
+                    right: small ? -120 : -120,
+                    width: small ? 420 : 520,
+                    height: small ? 420 : 520,
+                    background: "var(--color-accent-300)",
+                }}
+            />
 
             <div
                 className={`wrap ${small ? "grid-hero-compact" : "grid-hero"}`}
@@ -110,23 +67,20 @@ function Hero({ block }: { block: Extract<Block, { type: "hero" }> }) {
 
                 {block.image && (
                     <figure
-                        className="hero-figure"
-                        style={{
-                            position: "relative",
-                            margin: 0,
-                            width: small ? 200 : "100%",
-                        }}
+                        className="hero-figure portrait"
+                        style={{ width: small ? 200 : "100%" }}
                     >
+                        {/* The large portrait gets discs layered behind it. */}
+                        {!small && (
+                            <>
+                                <div className="portrait-disc" />
+                                <div className="portrait-dot" />
+                            </>
+                        )}
                         <div
-                            className="washed"
+                            className="washed portrait-photo"
                             style={{
-                                width: "100%",
-                                aspectRatio: "1 / 1",
-                                borderRadius: "50%",
-                                overflow: "hidden",
-                                background: "var(--color-surface)",
                                 boxShadow: small ? "var(--shadow-sm)" : "var(--shadow-md)",
-                                position: "relative",
                             }}
                         >
                             <Image
@@ -228,7 +182,7 @@ function Steps({ block }: { block: Extract<Block, { type: "steps" }> }) {
                                     background:
                                         i % 2 === 0
                                             ? "var(--color-accent)"
-                                            : "var(--brand-green)",
+                                            : "var(--brand-blue)",
                                     color: "var(--color-bg)",
                                     fontFamily: "var(--font-heading)",
                                     fontSize: 20,
@@ -272,32 +226,48 @@ function Steps({ block }: { block: Extract<Block, { type: "steps" }> }) {
 
 function Quote({ block }: { block: Extract<Block, { type: "quote" }> }) {
     return (
-        <section className="wrap" style={{ paddingTop: 96, paddingBottom: 96 }}>
-            <blockquote
+        <section className="band-dark">
+            <div
+                className="blob"
                 style={{
-                    margin: 0,
-                    fontFamily: "var(--font-heading)",
-                    fontSize: "clamp(28px, 4.6vw, 40px)",
-                    lineHeight: 1.25,
-                    color: "var(--color-accent-800)",
-                    maxWidth: "22ch",
+                    top: -90,
+                    right: -60,
+                    width: 340,
+                    height: 340,
+                    background: "var(--color-accent)",
+                    opacity: 0.85,
                 }}
+            />
+            <div
+                className="wrap"
+                style={{ position: "relative", paddingTop: 104, paddingBottom: 104 }}
             >
-                {block.text}
-            </blockquote>
-            {block.cite && (
-                <p
+                <blockquote
                     style={{
-                        margin: "var(--space-6) 0 0",
-                        fontSize: 13,
-                        letterSpacing: "0.14em",
-                        textTransform: "uppercase",
-                        color: "var(--color-neutral-600)",
+                        margin: 0,
+                        fontFamily: "var(--font-heading)",
+                        fontSize: "clamp(30px, 5vw, 44px)",
+                        lineHeight: 1.22,
+                        color: "var(--color-bg)",
+                        maxWidth: "22ch",
                     }}
                 >
-                    {block.cite}
-                </p>
-            )}
+                    {block.text}
+                </blockquote>
+                {block.cite && (
+                    <p
+                        style={{
+                            margin: "var(--space-6) 0 0",
+                            fontSize: 13,
+                            letterSpacing: "0.14em",
+                            textTransform: "uppercase",
+                            color: "var(--color-accent-300)",
+                        }}
+                    >
+                        {block.cite}
+                    </p>
+                )}
+            </div>
         </section>
     );
 }

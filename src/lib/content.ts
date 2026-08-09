@@ -48,8 +48,6 @@ export type Block =
         image?: string;
         /** "large" is the big circular portrait, "small" a 200px avatar. */
         imageSize?: "large" | "small";
-        /** Where the soft decorative circles sit behind this hero. */
-        decor?: "right" | "left" | "bottom";
     }
     | { type: "features"; items: FeatureItem[] }
     | { type: "steps"; title?: string; items: FeatureItem[] }
@@ -95,7 +93,7 @@ export const SITE = {
     contact: {
         address: "Kızılırmak mahallesi 1443. sk. No:31/1",
         city: "Çankaya / Ankara",
-        instagram: "@yoneylemkocu",
+        instagram: "@yoneylemkocluk",
     },
 
     footer: {
@@ -118,7 +116,7 @@ export const HOME_PAGE: Page = {
             title: "Hayatınızı ve Kariyerinizi Yeniden Tanımlayın",
             subtitle:
                 "Profesyonel koçluk desteği ile engelleri aşın, hedeflerinize odaklanın ve gerçek potansiyelinizi ortaya çıkarın.",
-            image: "/placeholder_1.png",
+            image: "/photo-placeholder.png",
         },
         {
             type: "features",
@@ -186,9 +184,8 @@ export const ABOUT_PAGE: Page = {
             title: "Merhaba, ben Hatice",
             subtitle:
                 "20 yılı aşkın öğretmenlik ve idarecilik tecrübesinin ardından, gençlere koç olarak eşlik ediyorum.",
-            image: "/placeholder_1.png",
+            image: "/photo-placeholder.png",
             imageSize: "small",
-            decor: "left",
         },
         {
             type: "text",
@@ -227,7 +224,6 @@ export const CONTACT_PAGE: Page = {
             title: "Çukurambar'dayız",
             subtitle:
                 "Sorularınız, randevu talepleriniz veya koçluk süreci hakkında bilgi almak için bizimle iletişime geçebilirsiniz.",
-            decor: "bottom",
         },
         {
             type: "contacts",
@@ -245,9 +241,9 @@ export const CONTACT_PAGE: Page = {
                 },
                 {
                     label: "Instagram",
-                    value: "@yoneylemkocu",
+                    value: "@yoneylemkocluk",
                     linkLabel: "Profili aç",
-                    href: "https://www.instagram.com/yoneylemkocu/",
+                    href: "https://www.instagram.com/yoneylemkocluk/",
                 },
             ],
         },
