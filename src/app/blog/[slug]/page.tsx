@@ -35,7 +35,23 @@ export async function generateMetadata({
     // The build-time placeholder: keep it out of search results.
     if (!post) return { robots: { index: false, follow: false } };
 
-    return { title: `${post.title} · ${SITE.brandName}` };
+    const path = `/blog/${post.slug}/`;
+    const image = post.image ?? SITE.shareImage;
+
+    return {
+        title: post.title,
+        alternates: { canonical: path },
+        openGraph: {
+            type: "article",
+            title: post.title,
+            url: path,
+            locale: "tr_TR",
+            siteName: SITE.brandName,
+            publishedTime: post.date,
+            authors: [post.author],
+            images: [{ url: image }],
+        },
+    };
 }
 
 export default async function BlogPost({

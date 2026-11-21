@@ -17,7 +17,23 @@ export async function generateMetadata({
 
     if (!page) return {};
 
-    return { title: `${page.title} · ${SITE.brandName}` };
+    const path = `/${page.slug}/`;
+    const description = page.description ?? SITE.description;
+
+    return {
+        title: page.title,
+        description,
+        alternates: { canonical: path },
+        openGraph: {
+            title: `${page.title} · ${SITE.brandName}`,
+            description,
+            url: path,
+            type: "website",
+            locale: "tr_TR",
+            siteName: SITE.brandName,
+            images: [{ url: SITE.shareImage, width: 1200, height: 630 }],
+        },
+    };
 }
 
 export default async function DynamicPage({

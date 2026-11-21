@@ -87,6 +87,21 @@ Görselleri `public/` klasörüne koyun, `"/dosya-adi.png"` şeklinde referans v
 
 ---
 
+## Sertifikalar
+
+Sertifika görselleri `public/sertifikalar/` klasöründe. Yeni sertifika eklemek için görseli bu klasöre koyun ve `src/lib/content.ts` içindeki "Eğitimler ve Sertifikalar" listesine bir kart ekleyin (`file` alanına dosya adını yazın). Görselde TC kimlik no gibi kişisel bilgi varsa önce kırpın.
+
+---
+
+## Google ve link önizlemesi
+
+- **Site adresi:** `src/lib/content.ts` içinde `url`. Alan adı değişirse yalnızca burayı güncelleyin; önizleme görseli, sitemap ve Google kartı bu adresi kullanır.
+- **Paylaşım görseli:** `public/og.png` (1200×630). Link WhatsApp/Instagram'da paylaşıldığında bu görsel çıkar. Değiştirmek için aynı adla yeni bir görsel koyun.
+- **Sayfa açıklamaları:** Her sayfanın `description` alanı, Google'da başlığın altında görünen metindir.
+- `/sitemap.xml` ve `/robots.txt` derleme sırasında otomatik üretilir; yeni blog yazıları sitemap'e kendiliğinden eklenir.
+
+---
+
 ## Geliştirme
 
 ```bash

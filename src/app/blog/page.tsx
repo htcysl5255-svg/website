@@ -6,8 +6,18 @@ import { getAllPosts } from "@/lib/posts";
 import { formatDate } from "@/lib/format";
 
 export const metadata: Metadata = {
-    title: `${SITE.nav.blog} · ${SITE.brandName}`,
+    title: SITE.nav.blog,
     description: SITE.blog.pageSubtitle,
+    alternates: { canonical: "/blog/" },
+    openGraph: {
+        type: "website",
+        title: `${SITE.nav.blog} · ${SITE.brandName}`,
+        description: SITE.blog.pageSubtitle,
+        url: "/blog/",
+        locale: "tr_TR",
+        siteName: SITE.brandName,
+        images: [{ url: SITE.shareImage, width: 1200, height: 630 }],
+    },
 };
 
 export default function Blog() {
