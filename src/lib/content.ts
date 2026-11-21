@@ -166,6 +166,16 @@ export const SITE = {
     },
 };
 
+/** WhatsApp chat link with the greeting message already typed in. */
+export const WHATSAPP_URL = `https://wa.me/${SITE.contact.whatsapp}?text=${encodeURIComponent(
+    SITE.contact.whatsappMessage
+)}`;
+
+/** The WhatsApp number written for people: 905445539673 → 0544 553 96 73. */
+export const WHATSAPP_DISPLAY = SITE.contact.whatsapp
+    .replace(/^90/, "0")
+    .replace(/^(\d{4})(\d{3})(\d{2})(\d{2})$/, "$1 $2 $3 $4");
+
 /* ─── Home page ────────────────────────────────────────────── */
 
 export const HOME_PAGE: Page = {
@@ -390,10 +400,18 @@ export const CONTACT_PAGE: Page = {
             title: "Çukurambar'dayız",
             subtitle:
                 "Sorularınız, randevu talepleriniz veya koçluk süreci hakkında bilgi almak için bizimle iletişime geçebilirsiniz.",
+            cta: true,
         },
         {
             type: "contacts",
             items: [
+                {
+                    label: "WhatsApp",
+                    value: WHATSAPP_DISPLAY,
+                    note: "Mesaj yazın, en kısa sürede dönelim.",
+                    linkLabel: "WhatsApp'tan yaz",
+                    href: WHATSAPP_URL,
+                },
                 {
                     label: "Adres",
                     value: "Kızılırmak mahallesi 1443. sk. No:31/1",

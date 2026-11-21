@@ -619,6 +619,7 @@ a:hover {
 @media (max-width: 620px) {
   :root {
     --gutter: 22px;
+    --hero-pad-top: 56px;
   }
 
   .grid-2,
@@ -631,6 +632,33 @@ a:hover {
 
   .lede {
     font-size: 17px;
+  }
+
+  /* Phones: words and the WhatsApp button first, so the button is on the
+     first screen; a smaller portrait follows below them. */
+  .grid-hero {
+    gap: 48px;
+  }
+
+  .grid-hero .hero-figure {
+    order: 0;
+    max-width: 240px;
+    margin-inline: auto;
+  }
+
+  .grid-hero .portrait-disc {
+    inset: 14px -14px -14px 14px;
+  }
+
+  .grid-hero .portrait-dot {
+    left: -20px;
+    bottom: 16px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .btn-cta {
+    margin-top: var(--space-6);
   }
 
   .prose {

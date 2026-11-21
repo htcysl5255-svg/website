@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { SITE, NAV_ITEMS } from "@/lib/content";
+import { SITE, NAV_ITEMS, WHATSAPP_URL, WHATSAPP_DISPLAY } from "@/lib/content";
 
 export default function Footer() {
     const links = [{ title: SITE.nav.home, slug: "" }, ...NAV_ITEMS];
@@ -77,6 +77,14 @@ export default function Footer() {
                         <br />
                         {SITE.contact.city}
                     </p>
+                    <a
+                        href={WHATSAPP_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ display: "block", fontSize: 16, marginBottom: "var(--space-2)" }}
+                    >
+                        WhatsApp: {WHATSAPP_DISPLAY}
+                    </a>
                     <a
                         href={`https://www.instagram.com/${SITE.contact.instagram.replace("@", "")}/`}
                         target="_blank"

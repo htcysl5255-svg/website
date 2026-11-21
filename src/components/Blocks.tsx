@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Award, Compass, FileText, Handshake, Hourglass, Target } from "lucide-react";
-import { SITE, type AudienceIcon, type Block } from "@/lib/content";
+import { SITE, WHATSAPP_URL, type AudienceIcon, type Block } from "@/lib/content";
 
 const AUDIENCE_ICONS: Record<AudienceIcon, typeof Target> = {
     target: Target,
@@ -21,7 +21,7 @@ function WhatsAppLogo({ size = 20 }: { size?: number }) {
 function WhatsAppButton() {
     return (
         <a
-            href={whatsappHref()}
+            href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary btn-cta"
@@ -30,11 +30,6 @@ function WhatsAppButton() {
             {SITE.cta.label}
         </a>
     );
-}
-
-function whatsappHref() {
-    const { whatsapp, whatsappMessage } = SITE.contact;
-    return `https://wa.me/${whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
 }
 
 /** Shared look for section headings (steps, values, audience). */
@@ -109,7 +104,7 @@ function Hero({ block }: { block: Extract<Block, { type: "hero" }> }) {
                 className={`wrap ${small ? "grid-hero-compact" : "grid-hero"}`}
                 style={{
                     position: "relative",
-                    paddingTop: small ? 96 : 104,
+                    paddingTop: small ? 96 : "var(--hero-pad-top, 104px)",
                     paddingBottom: small ? 56 : 88,
                 }}
             >
