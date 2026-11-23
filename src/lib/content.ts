@@ -330,11 +330,11 @@ export const ABOUT_PAGE: Page = {
 
 <p>Bununla birlikte zaman içerisinde eğitim sektöründe gördüğüm, öğrencilerin geleceklerini şekillendirecek zorlu sınav süreçlerinin olması, bu noktada mevcut sistemin yetersiz kalması ve öğrenci profilinin de gelişen teknoloji ile birlikte değişmesi (odak ve dikkat problemleri ve benzeri gibi) beni öğrencilere farklı bir şekilde destek olmak gerektiği düşüncesine sevk etti.</p>
 
-<p>Bu arayışla yolum koçluk eğitimleri ile kesişti. NLP, Mindfulness, Kariyer ve Meslek Seçimi, Öğrenci ve Ebeveyn Koçluğu, P4C derken eğitimlerin getirdiği farkındalıkla gençlere yeni faydalı olma teknikleri geliştirdim.</p>
+<p>Bu arayışla yolum koçluk eğitimleri ile kesişti. NLP, Mindfulness, Kariyer ve Meslek Seçimi, Öğrenci ve Ebeveyn Koçluğu, P4C, Anlayarak Hızlı Okuma derken eğitimlerin getirdiği farkındalıkla gençlere yeni faydalı olma teknikleri geliştirdim.</p>
 
 <blockquote>“Her insan keşfedilmemiş bir potansiyeldir.”</blockquote>
 
-<p>İnsana dair, insanlığa dair her şeyin kıymetini bilmekle faydalı olmaya, üretmeye ve toplumsal katkıya devam edebilmek adına <strong>Yöneylem Koçluk</strong>'u kurdum. Bu şekilde daha önce öğretmen olarak sunduğum katkıyı şimdi koç olarak sunuyorum.</p>
+<p>İnsana dair, insanlığa dair her şeyin kıymetini bilmekle faydalı olmaya, üretmeye ve toplumsal katkıya devam edebilmek adına <strong>Yöneylem Koçluk</strong>'u kurdum. Bu şekilde daha önce öğretmen olarak sunduğum katkıyı şimdi koç olarak ve aynı zamanda <a href="/blog/anlayarak-okuma/">Anlayarak Hızlı Okuma</a> ile sunuyorum.</p>
 
 <p>Tecrübelerimi yeni nesil ihtiyaçlarla geliştirerek; bağ kurucu, anlayışlı, kişiye özel, farkındalıklı, prensipli ve geliştirici bir yaklaşımla gençlerin kendi yönlerini bulmalarına, bu noktada eylem adımlarına geçecekleri anlamlı bir yol haritası oluşturmalarına ve bu süreci dengeyle götürebilmelerine eşlik ediyorum.</p>
 
