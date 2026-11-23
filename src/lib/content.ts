@@ -334,7 +334,7 @@ export const ABOUT_PAGE: Page = {
 
 <blockquote>“Her insan keşfedilmemiş bir potansiyeldir.”</blockquote>
 
-<p>İnsana dair, insanlığa dair her şeyin kıymetini bilmekle faydalı olmaya, üretmeye ve toplumsal katkıya devam edebilmek adına <strong>Yöneylem Koçluk</strong>'u kurdum. Bu şekilde daha önce öğretmen olarak sunduğum katkıyı şimdi koç olarak ve aynı zamanda <a href="/blog/anlayarak-okuma/">Anlayarak Hızlı Okuma</a> ile sunuyorum.</p>
+<p>İnsana dair, insanlığa dair her şeyin kıymetini bilmekle faydalı olmaya, üretmeye ve toplumsal katkıya devam edebilmek adına <strong>Yöneylem Koçluk</strong>'u kurdum. Bu şekilde daha önce öğretmen olarak sunduğum katkıyı şimdi koç olarak ve <a href="/blog/anlayarak-okuma/">Anlayarak Hızlı Okuma</a> eğitmenliği ile sunuyorum.</p>
 
 <p>Tecrübelerimi yeni nesil ihtiyaçlarla geliştirerek; bağ kurucu, anlayışlı, kişiye özel, farkındalıklı, prensipli ve geliştirici bir yaklaşımla gençlerin kendi yönlerini bulmalarına, bu noktada eylem adımlarına geçecekleri anlamlı bir yol haritası oluşturmalarına ve bu süreci dengeyle götürebilmelerine eşlik ediyorum.</p>
 
