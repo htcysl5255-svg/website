@@ -1,6 +1,12 @@
 import Image from "next/image";
 import { Award, Compass, FileText, Handshake, Hourglass, Target } from "lucide-react";
-import { SITE, WHATSAPP_URL, type AudienceIcon, type Block } from "@/lib/content";
+import {
+    SITE,
+    WHATSAPP_URL,
+    type AudienceIcon,
+    type Block,
+    type ContactItem,
+} from "@/lib/content";
 
 const AUDIENCE_ICONS: Record<AudienceIcon, typeof Target> = {
     target: Target,
@@ -457,54 +463,84 @@ function Quote({ block }: { block: Extract<Block, { type: "quote" }> }) {
 function Contacts({ block }: { block: Extract<Block, { type: "contacts" }> }) {
     if (block.items.length === 0) return null;
 
+    // With a photo: details stacked in one column, the photo in the other.
+    if (block.image) {
+        return (
+            <section className="wrap" style={{ paddingTop: 40, paddingBottom: 120 }}>
+                <div className="grid-2 rule contacts-with-photo" style={{ paddingTop: 56 }}>
+                    <div className="contacts-stack">
+                        {block.items.map((item, i) => (
+                            <ContactDetail key={i} item={item} />
+                        ))}
+                    </div>
+                    <figure className="contacts-photo">
+                        <Image
+                            src={block.image}
+                            alt={block.imageAlt ?? ""}
+                            fill
+                            sizes="(max-width: 620px) 100vw, 480px"
+                            style={{ objectFit: "cover" }}
+                        />
+                    </figure>
+                </div>
+            </section>
+        );
+    }
+
     return (
         <section className="wrap" style={{ paddingTop: 40, paddingBottom: 120 }}>
             <div className="grid-2 rule" style={{ paddingTop: 56 }}>
                 {block.items.map((item, i) => (
-                    <div key={i}>
-                        <p className="eyebrow-quiet">{item.label}</p>
-                        <p
-                            style={{
-                                margin: 0,
-                                fontFamily: "var(--font-heading)",
-                                fontSize: 26,
-                                lineHeight: 1.4,
-                                color: "var(--color-text)",
-                            }}
-                        >
-                            {item.value}
-                        </p>
-                        {item.note && (
-                            <p
-                                style={{
-                                    margin: "var(--space-2) 0 0",
-                                    fontSize: 17,
-                                    color: "var(--color-neutral-700)",
-                                }}
-                            >
-                                {item.note}
-                            </p>
-                        )}
-                        {item.href && item.linkLabel && (
-                            <a
-                                href={item.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                style={{
-                                    display: "inline-block",
-                                    marginTop: "var(--space-4)",
-                                    fontSize: 16,
-                                    borderBottom: "1px solid var(--color-accent-300)",
-                                    paddingBottom: 2,
-                                }}
-                            >
-                                {item.linkLabel}
-                            </a>
-                        )}
-                    </div>
+                    <ContactDetail key={i} item={item} />
                 ))}
             </div>
         </section>
+    );
+}
+
+function ContactDetail({ item }: { item: ContactItem }) {
+    return (
+        <div>
+            <p className="eyebrow-quiet">{item.label}</p>
+            <p
+                style={{
+                    margin: 0,
+                    fontFamily: "var(--font-heading)",
+                    fontSize: 26,
+                    lineHeight: 1.4,
+                    color: "var(--color-text)",
+                }}
+            >
+                {item.value}
+            </p>
+            {item.note && (
+                <p
+                    style={{
+                        margin: "var(--space-2) 0 0",
+                        fontSize: 17,
+                        color: "var(--color-neutral-700)",
+                    }}
+                >
+                    {item.note}
+                </p>
+            )}
+            {item.href && item.linkLabel && (
+                <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                        display: "inline-block",
+                        marginTop: "var(--space-4)",
+                        fontSize: 16,
+                        borderBottom: "1px solid var(--color-accent-300)",
+                        paddingBottom: 2,
+                    }}
+                >
+                    {item.linkLabel}
+                </a>
+            )}
+        </div>
     );
 }
 

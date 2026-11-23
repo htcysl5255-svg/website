@@ -425,6 +425,30 @@ a:hover {
   gap: 64px;
 }
 
+/* Contact details stacked on the left, a portrait photo on the right. */
+.contacts-with-photo {
+  align-items: start;
+}
+
+.contacts-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.contacts-photo {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  max-width: 480px;
+  justify-self: end;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
 .grid-steps {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

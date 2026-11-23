@@ -24,6 +24,7 @@
  *      { type: "cta", text }   → a line of text + the WhatsApp button
  *      { type: "quote",    text, cite }
  *      { type: "contacts", items: [{ label, value, note, linkLabel, href }] }
+ *      { type: "contacts", …, image, imageAlt }   → a photo beside the details
  *      { type: "text",     content: "<p>…</p>" }
  *
  *  IMAGES
@@ -83,7 +84,13 @@ export type Block =
     | { type: "audience"; title?: string; items: AudienceItem[] }
     | { type: "steps"; title?: string; items: FeatureItem[] }
     | { type: "quote"; text: string; cite?: string }
-    | { type: "contacts"; items: ContactItem[] }
+    | {
+        type: "contacts";
+        items: ContactItem[];
+        /** Optional photo shown beside the details, e.g. "/ofis.webp". Portrait (3:4) works best. */
+        image?: string;
+        imageAlt?: string;
+    }
     | { type: "text"; content: string }
     | {
         type: "credentials";
@@ -404,6 +411,8 @@ export const CONTACT_PAGE: Page = {
         },
         {
             type: "contacts",
+            image: "/ofis.webp",
+            imageAlt: "Çukurambar'daki ofisimiz: koltuklar, çalışma masası ve balkon kapısı",
             items: [
                 {
                     label: "WhatsApp",
