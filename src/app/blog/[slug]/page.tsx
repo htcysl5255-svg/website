@@ -111,14 +111,15 @@ export default async function BlogPost({
                 {post.title}
             </h1>
 
+            {/* Cover shown whole at 3:2 and in its own colors: covers are often
+                designed images with text that cropping or fading would spoil. */}
             {post.image && (
                 <div
-                    className="washed"
                     style={{
                         position: "relative",
                         borderRadius: "var(--radius-lg)",
                         overflow: "hidden",
-                        height: 360,
+                        aspectRatio: "3 / 2",
                         background: "var(--color-surface)",
                         marginBottom: "var(--space-8)",
                     }}

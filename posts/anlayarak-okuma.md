@@ -1,6 +1,7 @@
 ---
 title: "Anlayarak Okuma: Okumak, anlamakla başlar"
 date: 2026-11-23
+image: "/blog/anlayarak-okuma.jpg"
 ---
 
 Paragrafı birkaç kez okuyup yine de soruya emin geçemiyor musun? Sayfa bitiyor ama aklında ne kaldığını bilemiyor musun? Okuman gereken çok şey var ama zaman hiç yetmiyor mu?
